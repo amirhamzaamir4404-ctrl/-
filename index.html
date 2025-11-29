@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- MANDATORY: Ensure mobile responsiveness -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ᴧ𝗵 𝙶𝒂𝐥𝐥э𝔯𝔂 | Personal Bio & Gaming</title>
+    <!-- SEO Optimization & Open Graph Tags (Crucial for Social Sharing/Growth) -->
+    <meta name="description" content="ᴧ𝗵 𝙶𝒂𝐥𝐥э𝔯𝔂: Soumik's personal bio, routine sharing, competitive gaming highlights, and exclusive promotional content from Dhaka, Bangladesh.">
+    <meta name="keywords" content="Soumik, ᴧ𝗵 𝙶𝒂𝐥𝐥э𝔯𝔂, Dhaka, Bangladesh, Gaming, Routine, Personal Blog, Sponsorship, Content Creator">
+    <meta property="og:title" content="ᴧ𝗵 𝙶𝒂𝐥𝐥э𝔯𝔂 | Creator & Gaming Hub">
+    <meta property="og:description" content="Sharing my journey, daily routines, and competitive gaming content from Dhaka, Bangladesh. Partner with me today!">
+    <meta property="og:type" content="website">
+    <!-- Placeholder image URL for social sharing (replace with a real logo or banner) -->
+    <meta property="og:image" content="https://placehold.co/1200x630/05050a/06b6d4?text=Ah+Gallery+Banner">
+    <meta property="og:url" content="[Your Website URL Here]">
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Setting 'Inter' as the default font */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #030308; /* Slightly darker background */
+            color: #e2e8f0; /* Light text */
+        }
+        /* Custom styles for dramatic hover effect on cards */
+        .game-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            background-color: #0d0d15; /* Darker card background */
+            border-color: #2f333a;
+        }
+        .game-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 255, 255, 0.3); /* Enhanced Neon cyan shadow effect */
+            border-color: #06b6d4; /* Cyan border on hover */
+        }
+        /* Custom neon border pulse effect for the main button */
+        @keyframes neon-pulse {
+            0%, 100% { box-shadow: 0 0 8px #38bdf8, 0 0 15px #38bdf8; }
+            50% { box-shadow: 0 0 20px #38bdf8, 0 0 30px #38bdf8; }
+        }
+        .cta-pulse {
+            animation: neon-pulse 2s infinite alternate;
+        }
+
+        /* Mobile Menu Styles */
+        .mobile-menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #030308; /* Match body background */
+            z-index: 50;
+            transform: translateX(100%);
+            transition: transform 0.3s ease-in-out;
+        }
+        .mobile-menu-overlay.open {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen">
+
+    <!-- Mobile Menu Overlay (New functional element for usability) -->
+    <div id="mobile-menu" class="mobile-menu-overlay p-8">
+        <div class="flex justify-end">
+            <button id="close-menu" class="text-gray-300 hover:text-cyan-400 p-2 text-4xl font-light leading-none">
+                &times;
+            </button>
+        </div>
+        <nav class="flex flex-col space-y-8 mt-16 text-center">
+            <a href="#gallery" class="text-3xl font-bold text-gray-100 hover:text-cyan-400 transition duration-300 menu-link">My Routine</a>
+            <a href="#gallery" class="text-3xl font-bold text-gray-100 hover:text-cyan-400 transition duration-300 menu-link">Gallery & Promos</a>
+            <a href="#about" class="text-3xl font-bold text-gray-100 hover:text-cyan-400 transition duration-300 menu-link">About Me</a>
+            <a href="#contact" class="text-3xl font-bold text-green-400 hover:text-green-300 transition duration-300 menu-link mt-12">Contact for Partnership</a>
+        </nav>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header class="bg-gray-900/50 backdrop-blur-sm shadow-xl sticky top-0 z-10 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <!-- Logo/Brand -->
+                <a href="#" class="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-green-400 hover:opacity-80 transition duration-300">
+                    ᴧ𝗵 𝙶𝒂𝐥𝐥э𝔯𝔂
+                </a>
+                
+                <!-- Desktop Navigation Links and Theme Toggle -->
+                <nav class="hidden md:flex space-x-8 items-center">
+                    <a href="#gallery" class="text-gray-300 hover:text-cyan-400 transition duration-300 font-semibold">My Routine</a>
+                    <a href="#gallery" class="text-gray-300 hover:text-cyan-400 transition duration-300 font-semibold">Gallery & Promos</a>
+                    <a href="#about" class="text-gray-300 hover:text-cyan-400 transition duration-300 font-semibold">About Me</a>
+                    
+                    <!-- Theme Toggle Placeholder -->
+                    <button id="theme-toggle" class="text-gray-300 hover:text-cyan-400 p-1 rounded-lg transition duration-300 ml-4" aria-label="Toggle dark/light theme">
+                        <!-- Sun icon -->
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+                    </button>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex items-center md:hidden">
+                    <button id="open-menu" class="text-gray-300 hover:text-cyan-400 p-2 rounded-lg transition duration-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section (Personal Creator Focus) -->
+    <main class="py-24 md:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-6xl md:text-7xl lg:text-8xl font-black leading-tight mb-6 text-transparent bg-clip-text bg-gradient-to-r from-white via-cyan-300 to-green-400">
+                Sharing My Journey from Dhaka, Bangladesh
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-400 mb-10 max-w-4xl mx-auto font-light">
+                Welcome to ᴧ𝗵 𝙶𝒂𝐥𝐥э𝔯𝔂, my second personal space. Here you'll find my daily routines, the latest gaming content, and exclusive promotional posts.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-6">
+                <a href="#gallery" class="px-10 py-4 text-xl font-bold bg-cyan-500 text-gray-950 rounded-2xl shadow-2xl hover:bg-cyan-400 transition duration-300 transform hover:scale-105 cta-pulse">
+                    SEE LATEST POSTS
+                </a>
+                <a href="#contact" class="px-10 py-4 text-xl font-semibold border border-gray-600 text-gray-200 rounded-2xl hover:bg-gray-800 transition duration-300 transform hover:scale-105">
+                    Partner with Me
+                </a>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Social Follow CTA (New block for instant engagement/growth) -->
+    <section class="pb-16 pt-8">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="p-6 bg-gray-800 rounded-3xl border border-gray-700 flex flex-col md:flex-row justify-between items-center shadow-lg">
+                <h3 class="text-2xl font-bold text-gray-100 mb-4 md:mb-0">Connect Now: Don't miss the next stream!</h3>
+                <a href="https://www.facebook.com/share/1BvP8PWdGh/" target="_blank" class="inline-flex items-center space-x-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-700 transition duration-300 transform hover:scale-105">
+                    <!-- Facebook Icon (Inline SVG) -->
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.601 2H4.399C3.064 2 2 3.064 2 4.399v15.202C2 20.936 3.064 22 4.399 22h7.938v-7.38h-2.65V12.16h2.65v-1.932c0-2.636 1.611-4.084 4.084-4.084 1.157 0 2.155.086 2.443.125v2.83h-1.678c-1.317 0-1.574.625-1.574 1.545v2.035h3.14l-.507 3.22h-2.633V22h4.281C20.936 22 22 20.936 22 19.601V4.399C22 3.064 20.936 2 19.601 2z"/></svg>
+                    <span>Follow on Facebook</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADVERTISEMENT / PARTNER SPOT Section (Highly visible banner for revenue) -->
+    <section class="py-10 bg-gray-900 border-t border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="p-6 md:p-12 bg-gray-800 rounded-3xl border-2 border-dashed border-cyan-500/50 shadow-2xl">
+                <h3 class="text-xl md:text-3xl font-bold text-cyan-400 mb-2">
+                    <span class="bg-cyan-500 text-gray-950 px-3 py-1 rounded-lg mr-2 text-sm uppercase">AD SPOT</span> Exclusive Partner Feature: [Brand Name]
+                </h3>
+                <p class="text-md text-gray-400 mb-4">
+                    Your Brand Message or Product Showcase Goes Here. Click to see the full campaign!
+                </p>
+                <!-- Placeholder Image for the Ad (Replace this URL/image with the actual ad) -->
+                <a href="#" class="inline-block w-full max-w-4xl mx-auto">
+                    <img src="https://placehold.co/800x150/1a1a2e/F0F8FF?text=Your+Ad+Banner+800x150" alt="Ad Placeholder Banner" class="w-full rounded-lg hover:opacity-90 transition duration-300">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery/Content Showcase Section -->
+    <section id="gallery" class="py-16 bg-gray-900/50 border-t border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-100">The Latest from ᴧ𝗵 𝙶𝒂𝐥𝐥э𝔯𝔂</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Post 1: Routine (Personal Bio) -->
+                <div class="game-card p-4 rounded-3xl shadow-2xl border border-gray-800">
+                    <img src="https://placehold.co/600x400/000000/06B6D4?text=DAILY+ROUTINE" alt="Daily Routine Post Placeholder" class="w-full h-auto rounded-xl mb-4 object-cover">
+                    <h3 class="text-2xl font-bold mb-1 text-cyan-400">Routine Post: A Rainy Day in Dhaka</h3>
+                    <p class="text-sm text-gray-400 mb-3">Category: Personal Bio | Date: Nov 25, 2025</p>
+                    <p class="text-gray-300">A detailed look into my current daily schedule, how I manage content creation, and my favorite spots in the city.</p>
+                </div>
+
+                <!-- Post 2: Gaming -->
+                <div class="game-card p-4 rounded-3xl shadow-2xl border border-gray-800">
+                    <img src="https://placehold.co/600x400/000000/10B981?text=GAMING+HIGHLIGHTS" alt="Gaming Post Placeholder" class="w-full h-auto rounded-xl mb-4 object-cover">
+                    <h3 class="text-2xl font-bold mb-1 text-green-400">Gaming: My Top 5 Fails of the Week</h3>
+                    <p class="text-sm text-gray-400 mb-3">Category: Gaming Content | Date: Nov 23, 2025</p>
+                    <p class="text-gray-300">Compiling the funniest moments from my recent stream sessions on Valorant and CS2. Check out the clips!</p>
+                </div>
+
+                <!-- Post 3: Promotional (Now clearly marked as Sponsored) -->
+                <div class="game-card p-4 rounded-3xl shadow-2xl border border-gray-800 border-orange-500/70">
+                    <img src="https://placehold.co/600x400/000000/F97316?text=PROMOTIONAL+POST" alt="Promotional Post Placeholder" class="w-full h-auto rounded-xl mb-4 object-cover">
+                    <h3 class="text-2xl font-bold mb-1 text-orange-400">Promo: Reviewing the New Ergonomic Chair <span class="text-xs bg-orange-500 text-gray-950 px-2 py-0.5 rounded-full ml-2 uppercase font-semibold">Sponsored</span></h3>
+                    <p class="text-sm text-gray-400 mb-3">Category: Sponsorship | Date: Nov 20, 2025</p>
+                    <p class="text-300">Honest review of my new setup addition. Is this the best chair for long gaming and streaming sessions?</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                 <a href="#" class="inline-block px-8 py-3 text-lg font-semibold border-2 border-cyan-500 text-cyan-400 rounded-xl hover:bg-cyan-500/20 transition duration-300 transform hover:scale-105">
+                    Load More Posts
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section (Creator Bio) -->
+    <section id="about" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-100">About the Creator</h2>
+            
+            <div class="max-w-4xl mx-auto text-center">
+                 <p class="text-xl text-gray-300 mb-6">
+                    I'm the creator behind ᴧ𝗵 𝙶𝒂𝐥𝐥э𝔯𝔂, based right here in **Dhaka, Bangladesh**. This site is where I share the real me—my life routines, my passion for competitive gaming, and the occasional opportunity to review awesome tech and gear. I strive to be authentic and connect with my audience through shared experiences, both digital and real-life.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
+                    <!-- Stat 1: Followers - Enhanced visual -->
+                    <div class="game-card p-6 rounded-xl border border-gray-700 bg-cyan-900/20">
+                        <p class="text-4xl font-extrabold text-cyan-400 mb-1">25K+</p>
+                        <p class="text-gray-400 text-sm">Community Members</p>
+                    </div>
+                    <!-- Stat 2: Gaming - Enhanced visual -->
+                    <div class="game-card p-6 rounded-xl border border-gray-700 bg-green-900/20">
+                        <p class="text-4xl font-extrabold text-green-400 mb-1">Global Rank #50</p>
+                        <p class="text-gray-400 text-sm">Competitive Gaming</p>
+                    </div>
+                    <!-- Stat 3: Content - Enhanced visual -->
+                    <div class="game-card p-6 rounded-xl border border-gray-700 bg-orange-900/20">
+                        <p class="text-4xl font-extrabold text-orange-400 mb-1">100+ Hours</p>
+                        <p class="text-gray-400 text-sm">Monthly Content</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact/Partner CTA Section (Refined with Copy-to-Clipboard feature) -->
+    <section id="contact" class="py-16 bg-gray-900/30">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-4 text-cyan-400">Partner or Say Hello.</h2>
+            <p class="text-lg text-gray-300 mb-8">
+                For collaboration inquiries, sponsorships, or just to connect, reach out directly. Click the button to copy the email address instantly!
+            </p>
+            
+            <!-- Direct email link with Copy to Clipboard functionality -->
+            <button id="copy-email-btn" class="inline-flex items-center space-x-3 text-xl font-bold text-white p-4 bg-green-600 rounded-xl shadow-xl hover:bg-green-500 transition duration-300 transform hover:scale-105 border border-green-400/50">
+                <!-- Mail Icon (Inline SVG) -->
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8m-6-3H9a2 2 0 00-2 2v10a2 2 0 002 2h6a2 2 0 002-2V7a2 2 0 00-2-2z"></path></svg>
+                <span id="email-text">jkamir19@gmail.com</span>
+            </button>
+
+            <!-- Confirmation message box -->
+            <div id="copy-message" class="mt-4 p-3 bg-gray-700 text-green-400 rounded-lg hidden transition duration-300">
+                Email copied to clipboard!
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 border-t border-gray-800 py-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:flex md:justify-between md:items-center">
+            <p class="text-sm text-gray-500 mb-4 md:mb-0">&copy; 2025 ᴧ𝗵 𝙶𝒂𝐥𝐥э𝔯𝔂. Based in Dhaka, Bangladesh.</p>
+            
+            <div class="flex justify-center md:justify-end space-x-6 items-center">
+                <!-- Facebook Link -->
+                <a href="https://www.facebook.com/share/1BvP8PWdGh/" target="_blank" aria-label="Follow me on Facebook" class="text-gray-400 hover:text-cyan-400 transition duration-300">
+                    <!-- Facebook Icon (Inline SVG) -->
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.601 2H4.399C3.064 2 2 3.064 2 4.399v15.202C2 20.936 3.064 22 4.399 22h7.938v-7.38h-2.65V12.16h2.65v-1.932c0-2.636 1.611-4.084 4.084-4.084 1.157 0 2.155.086 2.443.125v2.83h-1.678c-1.317 0-1.574.625-1.574 1.545v2.035h3.14l-.507 3.22h-2.633V22h4.281C20.936 22 22 20.936 22 19.601V4.399C22 3.064 20.936 2 19.601 2z"/>
+                    </svg>
+                </a>
+                
+                <a href="#" class="text-gray-400 hover:text-cyan-400 text-sm transition duration-300">Privacy</a>
+                <a href="mailto:jkamir19@gmail.com" class="text-gray-400 hover:text-cyan-400 text-sm transition duration-300">Contact</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- JavaScript for Smooth Scrolling, Mobile Menu, and Copy-to-Clipboard -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenu = document.getElementById('mobile-menu');
+            const openMenuBtn = document.getElementById('open-menu');
+            const closeMenuBtn = document.getElementById('close-menu');
+            const menuLinks = document.querySelectorAll('.menu-link');
+            const copyEmailBtn = document.getElementById('copy-email-btn');
+            const emailText = document.getElementById('email-text');
+            const copyMessage = document.getElementById('copy-message');
+
+            // --- Mobile Menu Logic ---
+            openMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.add('open');
+            });
+
+            closeMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+            });
+
+            // Close menu when a link is clicked and apply smooth scroll
+            menuLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    mobileMenu.classList.remove('open');
+                    
+                    // Trigger smooth scrolling for menu links
+                    if (this.getAttribute('href') !== '#') {
+                        e.preventDefault();
+                        const targetId = this.getAttribute('href');
+                        document.querySelector(targetId).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+
+            // --- Copy to Clipboard Logic ---
+            copyEmailBtn.addEventListener('click', () => {
+                const email = emailText.innerText.trim();
+                navigator.clipboard.writeText(email)
+                    .then(() => {
+                        copyMessage.classList.remove('hidden');
+                        setTimeout(() => {
+                            copyMessage.classList.add('hidden');
+                        }, 2000);
+                    });
+            });
+        });
+    </script>
+</body>
+</html>
